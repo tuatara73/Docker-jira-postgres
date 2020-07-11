@@ -12,6 +12,7 @@ services:
       - jira_home:/var/atlassian/application-data/jira
     ports:
       - 8080:8080
+    restart: always
     environment:
       - ATL_JDBC_URL=jdbc:postgresql://postgres-j:5432/jiradb
       - ATL_JDBC_USER=jiradbuser
@@ -19,7 +20,7 @@ services:
       - ATL_DB_DRIVER=org.postgresql.Driver
       - ATL_DB_TYPE=postgres72
       - SETENV_JVM_MINIMUM_MEMORY=2048m
-      - SETENV_JVM_MAXIMUM_MEMORY=2048m
+      - SETENV_JVM_MAXIMUM_MEMORY=4096m
       
   postgres-j:
     container_name: pg
@@ -32,6 +33,7 @@ services:
       - pg_data:/var/lib/postgresql/data
     expose:
       - 5432
+    restart: always
     environment:
       - POSTGRES_ENCODING=UTF8
       - POSTGRES_COLLATE=C
