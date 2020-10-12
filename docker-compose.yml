@@ -19,8 +19,8 @@ services:
       - ATL_JDBC_PASSWORD=admin
       - ATL_DB_DRIVER=org.postgresql.Driver
       - ATL_DB_TYPE=postgres72
-      - SETENV_JVM_MINIMUM_MEMORY=2048m
-      - SETENV_JVM_MAXIMUM_MEMORY=4096m
+      - SETENV_JVM_MINIMUM_MEMORY=10000m
+      - SETENV_JVM_MAXIMUM_MEMORY=15000m
       
   postgres-j:
     container_name: pg
