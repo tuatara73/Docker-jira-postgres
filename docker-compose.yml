@@ -10,10 +10,12 @@ services:
       - jiranet
     volumes:
       - jira_home:/var/atlassian/application-data/jira
+      - ./:/home
     ports:
       - 8080:8080
     restart: always
     environment:
+      - COMPOSE_CONVERT_WINDOWS_PATHS
       - ATL_JDBC_URL=jdbc:postgresql://postgres-j:5432/jiradb
       - ATL_JDBC_USER=jiradbuser
       - ATL_JDBC_PASSWORD=admin
